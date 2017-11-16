@@ -43,4 +43,13 @@
         android:layout_alignStart="@+id/tv_roll"
         android:layout_centerVertical="true"
         android:text="Status: " />
+
+    <Button
+        android:id="@+id/button_service"
+        android:onClick="onBtnClickService"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="Start Service" />
 </RelativeLayout>

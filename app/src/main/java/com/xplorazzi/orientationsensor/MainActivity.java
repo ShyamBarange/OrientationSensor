@@ -7,8 +7,10 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements SensorEventListener {
 
@@ -58,6 +60,8 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     float pitch;
     float roll;
 
+    String pitch_data, roll_data;
+
     @Override
     public void onSensorChanged(SensorEvent event) {
         //below commented code - junk - unreliable is never populated
@@ -94,6 +98,10 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             Pitch_data.setText(Float.toString(pitch));
             Roll_data.setText(Float.toString(roll));
 
+//            pass the string double values to service
+            pitch_data = Float.toString(pitch);
+            roll_data = Float.toString(roll);
+
             mags = null; //retrigger the loop when things are repopulated
             accels = null; ////retrigger the loop when things are repopulated
             if ((pitch >= -5 && pitch <= 5) && (roll >= -5 && roll <= 5)) {
@@ -110,6 +118,32 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
         }
     }
+
+     public void onBtnClickService(View view) {
+//        Intent i = new Intent();
+//
+         Toast.makeText(this, "Not Running...", Toast.LENGTH_SHORT).show();
+//        startActivityForResult(i, REQUEST_STATUS);
+//        Intent i = new Intent(this, MyService.class);
+//
+//        i.putExtra("pitch_value", pitch);
+//        i.putExtra("roll_value", roll);
+//
+//
+//        Toast.makeText(this, "Starting Service...", Toast.LENGTH_SHORT).show();
+//        startService(i);
+    }
+
+//    private void startActivityForResult(int requestCode, int resultCode, Intent data) {
+//        if (requestCode == REQUEST_STATUS) {
+//            if (resultCode == RESULT_OK) {
+//                Intent i = new Intent(this, MyService.class)
+//                        .putExtra(MyService.EXTRA_RESULT_CODE, resultCode)
+//                        .putExtra(MyService.EXTRA_RESULT_INTENT, data);
+//                startService(i);
+//            }
+//        }
+//    }
 
 
     @Override
